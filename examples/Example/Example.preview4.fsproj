@@ -1,0 +1,66 @@
+﻿<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" ToolsVersion="15.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <VersionPrefix>2.0.0-rc3</VersionPrefix>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyName>Example</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../paket-files/haf/YoLo/YoLo.fs" />
+    <Compile Include="CounterDemo.fs" />
+    <Compile Include="Program.fs" />
+
+    <None Include="test.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="lift.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="es.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="eventsource.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="examples.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="suave.p12">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Include="Play.fsx" />
+
+    <None Include="paket.references" />
+    <EmbeddedResource Include="**\*.resx" />
+
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+    <PackageReference Include="Microsoft.NETCore.App" Version="1.0.1" />
+    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />
+    <ProjectReference Include="..\..\src\Suave\Suave.preview4.fsproj">
+      <Name>Suave</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
+    <DefineConstants>$(DefineConstants);DNXCORE50;NETSTANDARD1_5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-char-*">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
