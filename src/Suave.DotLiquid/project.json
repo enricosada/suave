@@ -2,7 +2,6 @@
     "version": "2.0.0-rc3-dotnetcli",
 
     "buildOptions": {
-        "compilerName": "fsc",
         "compile": {
             "includeFiles": [
                 "Library.fs"
