@@ -3,7 +3,7 @@
   <PropertyGroup>
     <VersionPrefix>2.0.0-rc3</VersionPrefix>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>Suave</AssemblyName>
+    <AssemblyName>Suave.DotLiquid</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="DotLiquid" Version="2.0.55" />
     <PackageReference Include="System.Data.Common" Version="4.1.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.1.0" />
     <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.0.0" />
@@ -24,7 +27,11 @@
     <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-*" />
     <PackageReference Include="NETStandard.Library" Version="1.6.0" />
     <PackageReference Include="System.Security.Claims" Version="4.0.1" />
-    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.0.2" />
+
+    <ProjectReference Include="..\Suave\Suave.preview4.fsproj">
+      <Name>Suave</Name>
+      <PackageVersion>2.0.0-rc3</PackageVersion>
+    </ProjectReference>
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
