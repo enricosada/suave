@@ -1,0 +1,56 @@
+﻿<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk" ToolsVersion="15.0">
+
+  <PropertyGroup>
+    <VersionPrefix>2.0.0-rc3</VersionPrefix>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>Suave.Experimental</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Html.fs" />
+    <Compile Include="Xml.fs" />
+    <Compile Include="Template.fs" />
+    <Compile Include="Data.fs" />
+    <Compile Include="Form.fs" />
+
+    <None Include="paket.references" />
+    <EmbeddedResource Include="**\*.resx" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="System.Data.Common" Version="4.1.0" />
+    <PackageReference Include="System.Xml.ReaderWriter" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.1.0" />
+    <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.0.0" />
+    <PackageReference Include="System.Net.Security" Version="4.0.0" />
+    <PackageReference Include="System.Globalization.Extensions" Version="4.0.1" />
+    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-*" />
+    <PackageReference Include="NETStandard.Library" Version="1.6.0" />
+    <PackageReference Include="System.Security.Claims" Version="4.0.1" />
+    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.0.2" />
+    <PackageReference Include="System.Net.Mail" Version="1.0.0-rtm-00002" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+
+    <ProjectReference Include="..\Suave\Suave.preview4.fsproj">
+      <Name>Suave</Name>
+      <PackageVersion>2.0.0-rc3</PackageVersion>
+    </ProjectReference>
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <DefineConstants>$(DefineConstants);NETSTANDARD1_5</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.0-char-*">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
