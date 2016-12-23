@@ -36,23 +36,19 @@
     <None Include="paket.references" />
     <EmbeddedResource Include="**\*.resx" />
 
-
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
+    <ProjectReference Include="..\..\src\Suave\Suave.preview4.fsproj">
+      <Name>Suave</Name>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
     <PackageReference Include="Microsoft.NETCore.App" Version="1.0.1" />
     <!--<PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />-->
     <!--<PackageReference Include="FSharp.Core" Version="4.0.0.1" />-->
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Suave\Suave.preview4.fsproj">
-      <Name>Suave</Name>
-    </ProjectReference>
-    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">

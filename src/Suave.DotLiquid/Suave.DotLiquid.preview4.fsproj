@@ -12,6 +12,14 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
+    <ProjectReference Include="..\Suave\Suave.preview4.fsproj">
+      <Name>Suave</Name>
+      <PackageVersion>2.0.0-rc3</PackageVersion>
+    </ProjectReference>
+  </ItemGroup>
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
     <PackageReference Include="System.Reflection" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
@@ -24,20 +32,11 @@
     <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-*" />
     <PackageReference Include="NETStandard.Library" Version="1.6.0" />
     <PackageReference Include="System.Security.Claims" Version="4.0.1" />
-
-    <ProjectReference Include="..\Suave\Suave.preview4.fsproj">
-      <Name>Suave</Name>
-      <PackageVersion>2.0.0-rc3</PackageVersion>
-    </ProjectReference>
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
     <DefineConstants>$(DefineConstants);DNXCORE50;NETSTANDARD1_5</DefineConstants>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8;dnxcore50</PackageTargetFallback>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
