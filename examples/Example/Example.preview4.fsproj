@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <VersionPrefix>2.0.0-rc3</VersionPrefix>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFrameworks>net451;netcoreapp1.0</TargetFrameworks>
     <AssemblyName>Example</AssemblyName>
   </PropertyGroup>
 
@@ -36,25 +36,27 @@
     <None Include="paket.references" />
     <EmbeddedResource Include="**\*.resx" />
 
+
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
     <PackageReference Include="Microsoft.NETCore.App" Version="1.0.1" />
-    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />
+    <!--<PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-161023" />-->
+    <!--<PackageReference Include="FSharp.Core" Version="4.0.0.1" />-->
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Suave\Suave.preview4.fsproj">
       <Name>Suave</Name>
     </ProjectReference>
+    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
     <DefineConstants>$(DefineConstants);DNXCORE50;NETSTANDARD1_5</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

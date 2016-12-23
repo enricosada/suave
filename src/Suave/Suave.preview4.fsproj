@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <VersionPrefix>2.0.0-rc3</VersionPrefix>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
     <AssemblyName>Suave</AssemblyName>
   </PropertyGroup>
 
@@ -68,8 +68,8 @@
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="FSharp.Core" Version="4.0.0.1" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
@@ -78,7 +78,7 @@
     <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.0.0" />
     <PackageReference Include="System.Net.Security" Version="4.0.0" />
     <PackageReference Include="System.Globalization.Extensions" Version="4.0.1" />
-    <PackageReference Include="Microsoft.FSharp.Core.netcore" Version="1.0.0-alpha-*" />
+    <PackageReference Include="FSharp.Core" Version="4.0.1.7-alpha" />
     <PackageReference Include="NETStandard.Library" Version="1.6.0" />
     <PackageReference Include="System.Security.Claims" Version="4.0.1" />
     <PackageReference Include="System.Runtime.Serialization.Json" Version="4.0.2" />
